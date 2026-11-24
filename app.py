@@ -22,31 +22,112 @@ st.set_page_config(
 # --------------------------- STYLING ---------------------------
 st.markdown("""
 <style>
-    .stApp { background: #f7faf7; }
-    [data-testid="stSidebar"] { background: #102f25; }
-    [data-testid="stSidebar"] * { color: #f3fff7 !important; }
+    /* Main page background and default text */
+    .stApp,
+    [data-testid="stAppViewContainer"],
+    [data-testid="stMain"] {
+        background-color: #f7faf8 !important;
+        color: #26352f !important;
+    }
+
+    /* Keep the sidebar dark with readable white text */
+    [data-testid="stSidebar"] {
+        background-color: #102f25 !important;
+    }
+    [data-testid="stSidebar"] * {
+        color: #f3fff7 !important;
+    }
+
+    /* Main content text: dark and readable */
+    [data-testid="stMain"] [data-testid="stMarkdownContainer"],
+    [data-testid="stMain"] [data-testid="stMarkdownContainer"] p,
+    [data-testid="stMain"] [data-testid="stMarkdownContainer"] li,
+    [data-testid="stMain"] [data-testid="stWidgetLabel"],
+    [data-testid="stMain"] [data-testid="stWidgetLabel"] p,
+    [data-testid="stMain"] label,
+    [data-testid="stMain"] .stCaption,
+    [data-testid="stMain"] [data-testid="stCaptionContainer"] {
+        color: #35483e !important;
+    }
+
+    [data-testid="stMain"] h1,
+    [data-testid="stMain"] h2,
+    [data-testid="stMain"] h3,
+    [data-testid="stMain"] h4,
+    [data-testid="stMain"] h5,
+    [data-testid="stMain"] h6 {
+        color: #123d2d !important;
+        font-weight: 700 !important;
+    }
+
+    /* Hero banner keeps its white text */
     .hero {
         padding: 1.6rem 1.8rem;
         border-radius: 18px;
         background: linear-gradient(120deg, #123d2d, #28734c);
-        color: white;
+        color: #ffffff !important;
         margin-bottom: 1.2rem;
     }
-    .hero h1 { color: white; margin: 0; font-size: 2.25rem; }
-    .hero p { color: #e5f5e9; margin: .4rem 0 0 0; }
+    .hero h1 {
+        color: #ffffff !important;
+        margin: 0;
+        font-size: 2.25rem;
+    }
+    .hero p {
+        color: #e5f5e9 !important;
+        margin: .4rem 0 0 0;
+    }
+
+    /* Metric cards and values */
+    [data-testid="stMetricLabel"],
+    [data-testid="stMetricLabel"] p {
+        color: #45564d !important;
+    }
+    [data-testid="stMetricValue"] {
+        color: #145c3c !important;
+        font-weight: 750 !important;
+    }
+
     .metric-card {
-        background: white; border: 1px solid #e3eee5;
-        border-radius: 14px; padding: 1rem 1.1rem;
+        background: #ffffff;
+        border: 1px solid #e3eee5;
+        border-radius: 14px;
+        padding: 1rem 1.1rem;
     }
     .crop-result {
-        background: white; border: 1px solid #dcebdd;
-        border-left: 5px solid #27965a; border-radius: 12px;
-        padding: 1rem; margin: .5rem 0;
+        background: #ffffff;
+        border: 1px solid #dcebdd;
+        border-left: 5px solid #27965a;
+        border-radius: 12px;
+        padding: 1rem;
+        margin: .5rem 0;
     }
-    .small-note { color: #64756b; font-size: .88rem; }
-    div.stButton > button[kind="primary"] {
-        background: #23764a; border-color: #23764a; color: white;
-        border-radius: 10px; font-weight: 650;
+    .small-note {
+        color: #52665b !important;
+        font-size: .88rem;
+    }
+
+    /* Form controls */
+    [data-testid="stMain"] input,
+    [data-testid="stMain"] textarea {
+        color: #26352f !important;
+    }
+    [data-testid="stMain"] [data-baseweb="select"] * {
+        color: #26352f !important;
+    }
+
+    div.stButton > button[kind="primary"],
+    div.stFormSubmitButton > button {
+        background: #23764a !important;
+        border-color: #23764a !important;
+        color: #ffffff !important;
+        border-radius: 10px;
+        font-weight: 650;
+    }
+
+    /* Info and warning messages */
+    [data-testid="stAlert"] p {
+        color: inherit !important;
     }
 </style>
 """, unsafe_allow_html=True)
